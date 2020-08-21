@@ -98,13 +98,13 @@ module.exports = function (grunt) {
                     destFileName = f.dest.substring(0, excEnd);
                 }
 
-                let tempJsFileName = destFileName + "_vue_split_file.js";
+                let tempJsFileName = destFileName + ".js";
                 let tmpLogMode = {
                     jsFlieName: tempJsFileName,
                     fileNameList: []
                 };
                 if (templateContent && templateContent.length > 0) {
-                    let tempHtmlFileName = destFileName + "_vue_split_file.html";
+                    let tempHtmlFileName = destFileName + ".html";
                     grunt.file.write(tempHtmlFileName, templateContent);
                     tmpLogMode.fileNameList.push(tempHtmlFileName);
                 }
@@ -122,9 +122,9 @@ module.exports = function (grunt) {
                     if (styleHeadReplace.indexOf("lang=stylus") != -1) {
                         styleExt = ".stylus";
                     }
-                    let styleFileName = destFileName + "_vue_split_file" + styleExt;
+                    let styleFileName = destFileName + styleExt;
                     grunt.file.write(styleFileName, styleContent);
-                    tmpLogMode.fileNameList.push(destFileName + ".css");
+                    tmpLogMode.fileNameList.push(styleFileName);
                 }
                 fileJsJsonList.push(tmpLogMode);
             }
