@@ -29,8 +29,8 @@ exports.vue_split_file = {
   },
   default_options: function(test) {
     test.expect(1);
-    var actual2 = grunt.file.read('tmp/ZhangTest1.js');
-    var expected2 = grunt.file.read('test/expected/ZhangTest1.js');
+    var actual2 = grunt.file.read('tmp/ZhangTest1_vue_split_file.js');
+    var expected2 = grunt.file.read('test/expected/ZhangTest1_vue_split_file.js');
     test.equal(actual2, expected2, 'should describe what the default behavior is.');
     test.done();
   },
