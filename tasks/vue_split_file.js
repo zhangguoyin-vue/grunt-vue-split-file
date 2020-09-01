@@ -63,8 +63,10 @@ module.exports = function (grunt) {
         // Iterate over all specified file groups.
         this.files.forEach(function (f) {
             // Concat specified files.
+            
             if (!flieRootPath) {
-                flieRootPath = f.orig.dest;
+                var pathList9 = f.orig.dest.split("/");
+                flieRootPath = pathList9[0] + "/";
             }
             var src = f.src.filter(function (filepath) {
                 // Warn on and remove invalid source files (if nonull was set).
@@ -130,6 +132,7 @@ module.exports = function (grunt) {
             }
         });
         if (flieRootPath && flieRootPath.length > 0 && fileJsJsonList && fileJsJsonList.length > 0) {
+            console.log(flieRootPath);
             grunt.file.write(flieRootPath + "vueSplitLog.json", JSON.stringify(fileJsJsonList));
         }
     });
